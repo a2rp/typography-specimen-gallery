@@ -1,0 +1,43 @@
+.backToTop {
+    position: fixed;
+    z-index: 30;
+    right: 22px;
+    bottom: 22px;
+    display: inline-flex;
+    min-width: 48px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #796b7e;
+    border-radius: 999px;
+    background: var(--plum);
+    padding: 0 13px;
+    box-shadow: 0 5px 20px rgb(32 23 38 / 18%);
+    color: #fffaf0;
+    font-size: 12px;
+    font-weight: 700;
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+
+    svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    &:hover {
+        border-color: var(--lime);
+        box-shadow: 0 0 0 3px rgb(216 231 122 / 16%), 0 5px 20px rgb(32 23 38 / 18%);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--lime);
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 520px) {
+        right: 14px;
+        bottom: 14px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
