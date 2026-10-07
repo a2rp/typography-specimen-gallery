@@ -1,0 +1,155 @@
+.siteHeader {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid #493c53;
+    background: rgb(48 38 58 / 97%);
+    color: #fffaf0;
+    backdrop-filter: blur(16px);
+
+    .headerInner {
+        display: grid;
+        width: min(1320px, 100% - 48px);
+        height: 68px;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .brand {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 720;
+        letter-spacing: -0.025em;
+    }
+
+    .brandMark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid #796b7e;
+        border-radius: 9px;
+        background: #45364d;
+        color: var(--lime);
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+
+        a {
+            border-bottom: 1px solid transparent;
+            padding-bottom: 4px;
+            color: #d6cdd9;
+            font-size: 12px;
+            font-weight: 650;
+            transition: border-color 140ms ease;
+
+            &:hover {
+                border-color: var(--lime);
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .repositoryLink,
+    .menuButton {
+        display: inline-flex;
+        min-height: 37px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #796b7e;
+        border-radius: 8px;
+        background: transparent;
+        color: #fffaf0;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: var(--lime);
+            box-shadow: 0 0 0 2px rgb(216 231 122 / 12%);
+        }
+    }
+
+    .repositoryLink {
+        gap: 7px;
+        padding: 0 11px;
+        font-size: 12px;
+        font-weight: 650;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .menuButton {
+        display: none;
+        width: 37px;
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .headerInner {
+            width: calc(100% - 28px);
+            height: 62px;
+            grid-template-columns: 1fr auto;
+        }
+
+        .navigation {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 14px;
+            left: 14px;
+            display: none;
+            gap: 0;
+            border: 1px solid #796b7e;
+            border-radius: 10px;
+            background: var(--plum);
+            padding: 6px;
+            box-shadow: 0 15px 40px rgb(0 0 0 / 24%);
+
+            a {
+                min-height: 43px;
+                align-content: center;
+                border-radius: 7px;
+                padding: 0 12px;
+            }
+        }
+
+        .navigationOpen {
+            display: grid;
+        }
+
+        .menuButton {
+            display: inline-flex;
+        }
+
+        .repositoryLink {
+            min-height: 35px;
+            gap: 6px;
+            padding-inline: 8px;
+        }
+    }
+}

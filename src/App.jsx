@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./App.module.css";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import TypeControls from "./components/typeControls/index.jsx";
@@ -6,7 +7,6 @@ import TypeScale from "./components/typeScale/index.jsx";
 import SiteFooter from "./components/siteFooter/index.jsx";
 import BackToTop from "./components/backToTop/index.jsx";
 import { fontPairs } from "./data/fontPairs.js";
-import { useState } from "react";
 
 const initialSettings = {
     pairId: "editorial",
@@ -21,6 +21,7 @@ const initialSettings = {
 
 const App = () => {
     const [settings, setSettings] = useState(initialSettings);
+    const selectedPair = fontPairs.find((pair) => pair.id === settings.pairId);
     const handleSettingChange = (key, value) => {
         setSettings((current) => ({ ...current, [key]: value }));
     };
@@ -43,11 +44,11 @@ const App = () => {
                 />
                 <TypeSpecimen
                     settings={settings}
-                    pair={fontPairs.find((pair) => pair.id === settings.pairId)}
+                    pair={selectedPair}
                 />
                 <TypeScale
                     settings={settings}
-                    pair={fontPairs.find((pair) => pair.id === settings.pairId)}
+                    pair={selectedPair}
                 />
             </main>
             <SiteFooter />

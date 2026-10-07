@@ -60,8 +60,10 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            border-bottom: 1px solid transparent;
             color: #e1d9e2;
             font-size: 12px;
+            transition: border-color 140ms ease;
             transition: color 140ms ease;
 
             svg {
@@ -70,7 +72,7 @@
             }
 
             &:hover {
-                color: var(--lime);
+                border-color: var(--lime);
             }
         }
     }
