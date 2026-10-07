@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import TypeControls from "./components/typeControls/index.jsx";
+import TypeSpecimen from "./components/typeSpecimen/index.jsx";
 import { fontPairs } from "./data/fontPairs.js";
 import { useState } from "react";
 
@@ -37,9 +38,10 @@ const App = () => {
                     pairs={fontPairs}
                     onChange={handleSettingChange}
                 />
-                <section className={styles.startPanel} id="specimen" aria-label="Typography specimen preview">
-                    <p>The live type specimen is next.</p>
-                </section>
+                <TypeSpecimen
+                    settings={settings}
+                    pair={fontPairs.find((pair) => pair.id === settings.pairId)}
+                />
             </main>
         </div>
     );
