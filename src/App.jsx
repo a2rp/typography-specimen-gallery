@@ -3,6 +3,7 @@ import SiteHeader from "./components/siteHeader/index.jsx";
 import TypeControls from "./components/typeControls/index.jsx";
 import TypeSpecimen from "./components/typeSpecimen/index.jsx";
 import TypeScale from "./components/typeScale/index.jsx";
+import SiteFooter from "./components/siteFooter/index.jsx";
 import { fontPairs } from "./data/fontPairs.js";
 import { useState } from "react";
 
@@ -48,6 +49,7 @@ const App = () => {
                     pair={fontPairs.find((pair) => pair.id === settings.pairId)}
                 />
             </main>
+            <SiteFooter />
         </div>
     );
 };
