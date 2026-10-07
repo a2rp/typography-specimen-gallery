@@ -69,6 +69,10 @@
     }
 
     .introduction {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 22px;
         margin-bottom: 30px;
 
         h1 {
@@ -85,6 +89,16 @@
             color: var(--muted);
             font-size: 15px;
         }
+    }
+
+    .issueMark {
+        flex: 0 0 auto;
+        border-top: 1px solid var(--coral-dark);
+        padding-top: 6px;
+        color: var(--coral-dark);
+        font-size: 10px;
+        font-weight: 750;
+        letter-spacing: 0.11em;
     }
 
     .startPanel {
@@ -109,6 +123,11 @@
         .header {
             height: 62px;
             padding-inline: 14px;
+        }
+
+        .introduction {
+            align-items: flex-start;
+            flex-direction: column;
         }
     }
 }
