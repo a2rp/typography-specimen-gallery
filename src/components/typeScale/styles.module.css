@@ -1,0 +1,226 @@
+.typeScale {
+    margin-top: 54px;
+    border-top: 1px solid var(--border);
+    padding-top: 42px;
+
+    .sectionHeading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+
+        h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(26px, 3vw, 36px);
+            letter-spacing: -0.045em;
+        }
+    }
+
+    .sectionLabel {
+        margin-bottom: 5px;
+        color: var(--coral-dark);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .description {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .copyButton {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 0 13px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 650;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover {
+            border-color: var(--coral-dark);
+            box-shadow: 0 0 0 2px rgb(184 78 54 / 10%);
+        }
+    }
+
+    .scaleLayout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+    }
+
+    .scaleTable {
+        min-width: 0;
+        padding: 8px 22px;
+    }
+
+    .tableHeader,
+    .scaleRow {
+        display: grid;
+        grid-template-columns: 105px minmax(100px, 1fr) 54px;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .tableHeader {
+        min-height: 40px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .scaleRow {
+        min-height: 54px;
+        border-top: 1px solid #ece7dc;
+    }
+
+    .scaleName {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .scaleSample {
+        overflow: hidden;
+        color: #3c2d40;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .scaleSize {
+        color: var(--coral-dark);
+        font-size: 12px;
+        font-weight: 700;
+        text-align: right;
+    }
+
+    .scaleSettings {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        border-left: 1px solid #e8e2d7;
+        background: #f8f3e8;
+        padding: 20px;
+    }
+
+    .glyphCard {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        border-bottom: 1px solid #dfd5c7;
+        padding-bottom: 13px;
+
+        p {
+            grid-column: 1 / -1;
+            margin-top: -4px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    }
+
+    .glyphLabel {
+        align-self: center;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 650;
+    }
+
+    .glyphPair {
+        color: #372b3c;
+        font-size: 58px;
+        letter-spacing: -0.1em;
+        line-height: 0.95;
+    }
+
+    .ratioField {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 700;
+
+        select {
+            width: 100%;
+            min-height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: #fffdf8;
+            padding: 0 10px;
+            color: var(--ink);
+            font-size: 13px;
+        }
+    }
+
+    .ratioNote {
+        margin-top: -11px;
+        color: var(--muted);
+        font-size: 11px;
+    }
+
+    .characterSet {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        overflow-wrap: anywhere;
+        border-top: 1px solid #dfd5c7;
+        padding-top: 13px;
+        color: #625b5d;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 12px;
+        letter-spacing: 0.025em;
+    }
+
+    .copyStatus {
+        min-height: 22px;
+        padding-top: 5px;
+        color: #477142;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    @media (max-width: 760px) {
+        .scaleLayout {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .scaleSettings {
+            border-top: 1px solid #e8e2d7;
+            border-left: 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .sectionHeading {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .scaleTable {
+            padding-inline: 12px;
+        }
+
+        .tableHeader,
+        .scaleRow {
+            grid-template-columns: 68px minmax(60px, 1fr) 46px;
+            gap: 8px;
+        }
+    }
+}

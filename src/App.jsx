@@ -2,6 +2,7 @@ import styles from "./App.module.css";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import TypeControls from "./components/typeControls/index.jsx";
 import TypeSpecimen from "./components/typeSpecimen/index.jsx";
+import TypeScale from "./components/typeScale/index.jsx";
 import { fontPairs } from "./data/fontPairs.js";
 import { useState } from "react";
 
@@ -39,6 +40,10 @@ const App = () => {
                     onChange={handleSettingChange}
                 />
                 <TypeSpecimen
+                    settings={settings}
+                    pair={fontPairs.find((pair) => pair.id === settings.pairId)}
+                />
+                <TypeScale
                     settings={settings}
                     pair={fontPairs.find((pair) => pair.id === settings.pairId)}
                 />
