@@ -43,7 +43,7 @@ const TypeSpecimen = ({ settings, pair }) => {
             <div className={styles.previewCard}>
                 <div className={styles.previewMeta}>
                     <span>{pair.name} pairing</span>
-                    <span>01 — 04</span>
+                    <span>01 - 04</span>
                 </div>
                 <div className={styles.previewContent}>
                     <p className={styles.overline}>A note on making</p>
