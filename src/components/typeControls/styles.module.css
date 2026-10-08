@@ -36,7 +36,10 @@
 
     .controlGrid {
         display: grid;
-        grid-template-columns: minmax(160px, 1.1fr) minmax(190px, 1.25fr) minmax(190px, 1.25fr) repeat(2, minmax(120px, 0.8fr));
+        grid-template-columns: minmax(160px, 1.1fr) minmax(
+                190px,
+                1.25fr
+            ) minmax(190px, 1.25fr) repeat(2, minmax(120px, 0.8fr));
         gap: 14px 16px;
     }
 

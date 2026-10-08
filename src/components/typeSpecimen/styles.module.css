@@ -35,7 +35,9 @@
         color: var(--ink);
         font-size: 13px;
         font-weight: 650;
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         svg {
             width: 16px;

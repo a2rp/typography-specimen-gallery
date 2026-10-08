@@ -1,7 +1,11 @@
 .appShell {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 92% 9%, rgb(231 111 75 / 10%), transparent 23%),
+        radial-gradient(
+            circle at 92% 9%,
+            rgb(231 111 75 / 10%),
+            transparent 23%
+        ),
         var(--paper);
     color: var(--ink);
 
