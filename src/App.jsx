@@ -11,7 +11,8 @@ import { fontPairs } from "./data/fontPairs.js";
 const initialSettings = {
     pairId: "editorial",
     headline: "Good type makes room for good ideas.",
-    paragraph: "A thoughtful pairing gives every page a voice. Adjust a few details, then read the result as a whole.",
+    paragraph:
+        "A thoughtful pairing gives every page a voice. Adjust a few details, then read the result as a whole.",
     weight: 400,
     headingSize: 68,
     bodySize: 17,
@@ -33,7 +34,10 @@ const App = () => {
                 <section className={styles.introduction}>
                     <div>
                         <h1>Find the voice in every letter.</h1>
-                        <p>Pair typefaces, tune the details, and see the whole page take shape.</p>
+                        <p>
+                            Pair typefaces, tune the details, and see the whole
+                            page take shape.
+                        </p>
                     </div>
                     <span className={styles.issueMark}>TYPE STUDY / 01</span>
                 </section>
@@ -42,14 +46,8 @@ const App = () => {
                     pairs={fontPairs}
                     onChange={handleSettingChange}
                 />
-                <TypeSpecimen
-                    settings={settings}
-                    pair={selectedPair}
-                />
-                <TypeScale
-                    settings={settings}
-                    pair={selectedPair}
-                />
+                <TypeSpecimen settings={settings} pair={selectedPair} />
+                <TypeScale settings={settings} pair={selectedPair} />
             </main>
             <SiteFooter />
             <BackToTop />

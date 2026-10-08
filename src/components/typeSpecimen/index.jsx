@@ -28,14 +28,26 @@ const TypeSpecimen = ({ settings, pair }) => {
     };
 
     return (
-        <section className={styles.typeSpecimen} id="specimen" aria-labelledby="specimen-title">
+        <section
+            className={styles.typeSpecimen}
+            id="specimen"
+            aria-labelledby="specimen-title"
+        >
             <div className={styles.sectionHeader}>
                 <div>
                     <p className={styles.sectionLabel}>A closer look</p>
                     <h2 id="specimen-title">Your type, in context</h2>
                 </div>
-                <button className={styles.copyButton} type="button" onClick={copyCss}>
-                    {copied ? <LuCheck aria-hidden="true" /> : <LuCopy aria-hidden="true" />}
+                <button
+                    className={styles.copyButton}
+                    type="button"
+                    onClick={copyCss}
+                >
+                    {copied ? (
+                        <LuCheck aria-hidden="true" />
+                    ) : (
+                        <LuCopy aria-hidden="true" />
+                    )}
                     {copied ? "Copied" : "Copy CSS"}
                 </button>
             </div>
@@ -51,11 +63,16 @@ const TypeSpecimen = ({ settings, pair }) => {
                         {settings.headline || "Your headline goes here."}
                     </h3>
                     <div className={styles.previewBottom}>
-                        <p className={styles.previewParagraph} style={bodyStyle}>
-                            {settings.paragraph || "Your body copy will appear here."}
+                        <p
+                            className={styles.previewParagraph}
+                            style={bodyStyle}
+                        >
+                            {settings.paragraph ||
+                                "Your body copy will appear here."}
                         </p>
                         <a href="#scale" className={styles.readLink}>
-                            Explore the scale <LuMoveUpRight aria-hidden="true" />
+                            Explore the scale{" "}
+                            <LuMoveUpRight aria-hidden="true" />
                         </a>
                     </div>
                 </div>

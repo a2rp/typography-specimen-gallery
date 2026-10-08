@@ -8,7 +8,16 @@ const ratios = [
     { value: 1.333, label: "Perfect fourth", note: "Confident contrast" },
 ];
 
-const scaleLabels = ["Caption", "Small", "Body", "Subhead", "Title", "Display", "Hero", "Poster"];
+const scaleLabels = [
+    "Caption",
+    "Small",
+    "Body",
+    "Subhead",
+    "Title",
+    "Display",
+    "Hero",
+    "Poster",
+];
 
 const TypeScale = ({ settings, pair }) => {
     const [ratio, setRatio] = useState(1.25);
@@ -30,15 +39,30 @@ const TypeScale = ({ settings, pair }) => {
     };
 
     return (
-        <section className={styles.typeScale} id="scale" aria-labelledby="scale-title">
+        <section
+            className={styles.typeScale}
+            id="scale"
+            aria-labelledby="scale-title"
+        >
             <div className={styles.sectionHeading}>
                 <div>
                     <p className={styles.sectionLabel}>Build a rhythm</p>
                     <h2 id="scale-title">A scale that holds together</h2>
-                    <p className={styles.description}>Each step grows from your body size, so the hierarchy feels related.</p>
+                    <p className={styles.description}>
+                        Each step grows from your body size, so the hierarchy
+                        feels related.
+                    </p>
                 </div>
-                <button className={styles.copyButton} type="button" onClick={copyScale}>
-                    {copied ? <LuCheck aria-hidden="true" /> : <LuCopy aria-hidden="true" />}
+                <button
+                    className={styles.copyButton}
+                    type="button"
+                    onClick={copyScale}
+                >
+                    {copied ? (
+                        <LuCheck aria-hidden="true" />
+                    ) : (
+                        <LuCopy aria-hidden="true" />
+                    )}
                     {copied ? "Copied" : "Copy scale CSS"}
                 </button>
             </div>
@@ -52,41 +76,76 @@ const TypeScale = ({ settings, pair }) => {
                     </div>
                     {scale.map((item) => (
                         <div className={styles.scaleRow} key={item.label}>
-                            <span className={styles.scaleName}>{item.label}</span>
+                            <span className={styles.scaleName}>
+                                {item.label}
+                            </span>
                             <span
                                 className={styles.scaleSample}
-                                style={{ fontFamily: pair.heading, fontSize: `${Math.min(item.size, 58)}px` }}
+                                style={{
+                                    fontFamily: pair.heading,
+                                    fontSize: `${Math.min(item.size, 58)}px`,
+                                }}
                             >
                                 Ag
                             </span>
-                            <span className={styles.scaleSize}>{item.size}px</span>
+                            <span className={styles.scaleSize}>
+                                {item.size}px
+                            </span>
                         </div>
                     ))}
                 </div>
 
-                <aside className={styles.scaleSettings} aria-label="Scale settings">
+                <aside
+                    className={styles.scaleSettings}
+                    aria-label="Scale settings"
+                >
                     <div className={styles.glyphCard}>
-                        <span className={styles.glyphLabel}>Selected pairing</span>
-                        <span className={styles.glyphPair} style={{ fontFamily: pair.heading }}>Aa</span>
-                        <p style={{ fontFamily: pair.body }}>{pair.name} / {settings.bodySize}px body</p>
+                        <span className={styles.glyphLabel}>
+                            Selected pairing
+                        </span>
+                        <span
+                            className={styles.glyphPair}
+                            style={{ fontFamily: pair.heading }}
+                        >
+                            Aa
+                        </span>
+                        <p style={{ fontFamily: pair.body }}>
+                            {pair.name} / {settings.bodySize}px body
+                        </p>
                     </div>
                     <label className={styles.ratioField} htmlFor="scale-ratio">
                         Scale ratio
-                        <select id="scale-ratio" value={ratio} onChange={(event) => setRatio(Number(event.target.value))}>
+                        <select
+                            id="scale-ratio"
+                            value={ratio}
+                            onChange={(event) =>
+                                setRatio(Number(event.target.value))
+                            }
+                        >
                             {ratios.map((item) => (
-                                <option value={item.value} key={item.label}>{item.label} ({item.value})</option>
+                                <option value={item.value} key={item.label}>
+                                    {item.label} ({item.value})
+                                </option>
                             ))}
                         </select>
                     </label>
-                    <p className={styles.ratioNote}>{ratios.find((item) => item.value === ratio)?.note}. Based on a {settings.bodySize}px body size.</p>
-                    <div className={styles.characterSet} aria-label="Character sample">
+                    <p className={styles.ratioNote}>
+                        {ratios.find((item) => item.value === ratio)?.note}.
+                        Based on a {settings.bodySize}px body size.
+                    </p>
+                    <div
+                        className={styles.characterSet}
+                        aria-label="Character sample"
+                    >
                         <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
                         <span>abcdefghijklmnopqrstuvwxyz</span>
                         <span>0123456789 &amp;?!@#%</span>
                     </div>
                 </aside>
             </div>
-            <p className={styles.copyStatus} aria-live="polite">{copied ? "Scale tokens copied to clipboard." : ""}</p>
+            <p className={styles.copyStatus} aria-live="polite">
+                {copied ? "Scale tokens copied to clipboard." : ""}
+            </p>
         </section>
     );
 };
