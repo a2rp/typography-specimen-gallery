@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LuCheck, LuCopy } from "react-icons/lu";
 import styles from "./styles.module.css";
 
@@ -22,19 +22,29 @@ const scaleLabels = [
 const TypeScale = ({ settings, pair }) => {
     const [ratio, setRatio] = useState(1.25);
     const [copied, setCopied] = useState(false);
+    const [copyMessage, setCopyMessage] = useState("");
+    const copyTimer = useRef(null);
     const scale = scaleLabels.map((label, index) => ({
         label,
         size: Math.round(settings.bodySize * ratio ** (index - 2)),
     }));
     const scaleCss = `:root {\n${scale.map(({ label, size }) => `  --type-${label.toLowerCase()}: ${size}px;`).join("\n")}\n}`;
 
+    useEffect(() => () => window.clearTimeout(copyTimer.current), []);
+
     const copyScale = async () => {
+        window.clearTimeout(copyTimer.current);
         try {
             await navigator.clipboard.writeText(scaleCss);
             setCopied(true);
-            window.setTimeout(() => setCopied(false), 1800);
+            setCopyMessage("Scale tokens copied to clipboard.");
+            copyTimer.current = window.setTimeout(() => {
+                setCopied(false);
+                setCopyMessage("");
+            }, 1800);
         } catch {
             setCopied(false);
+            setCopyMessage("Clipboard access is unavailable in this browser context.");
         }
     };
 
@@ -144,7 +154,7 @@ const TypeScale = ({ settings, pair }) => {
                 </aside>
             </div>
             <p className={styles.copyStatus} aria-live="polite">
-                {copied ? "Scale tokens copied to clipboard." : ""}
+                {copyMessage}
             </p>
         </section>
     );

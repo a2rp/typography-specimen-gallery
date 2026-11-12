@@ -26,7 +26,7 @@ Settings are held in React state in the current page only. They are not saved to
 Use Node.js and npm, then run these commands from this directory:
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 

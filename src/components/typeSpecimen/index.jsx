@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LuCheck, LuCopy, LuMoveUpRight } from "react-icons/lu";
 import styles from "./styles.module.css";
 
 const TypeSpecimen = ({ settings, pair }) => {
     const [copied, setCopied] = useState(false);
+    const [copyMessage, setCopyMessage] = useState("");
+    const copyTimer = useRef(null);
     const headingStyle = {
         fontFamily: pair.heading,
         fontSize: `clamp(42px, ${settings.headingSize / 13}vw, ${settings.headingSize}px)`,
@@ -17,13 +19,21 @@ const TypeSpecimen = ({ settings, pair }) => {
     };
     const cssSnippet = `/* ${pair.name} pairing */\n.hero-title {\n  font-family: ${pair.heading};\n  font-size: ${settings.headingSize}px;\n  font-weight: ${settings.weight};\n  letter-spacing: ${settings.tracking / 100}em;\n}\n\n.body-copy {\n  font-family: ${pair.body};\n  font-size: ${settings.bodySize}px;\n  line-height: ${settings.lineHeight};\n}`;
 
+    useEffect(() => () => window.clearTimeout(copyTimer.current), []);
+
     const copyCss = async () => {
+        window.clearTimeout(copyTimer.current);
         try {
             await navigator.clipboard.writeText(cssSnippet);
             setCopied(true);
-            window.setTimeout(() => setCopied(false), 1800);
+            setCopyMessage("Typography CSS copied to clipboard.");
+            copyTimer.current = window.setTimeout(() => {
+                setCopied(false);
+                setCopyMessage("");
+            }, 1800);
         } catch {
             setCopied(false);
+            setCopyMessage("Clipboard access is unavailable in this browser context.");
         }
     };
 
@@ -82,7 +92,7 @@ const TypeSpecimen = ({ settings, pair }) => {
                 </div>
             </div>
             <p className={styles.copyStatus} aria-live="polite">
-                {copied ? "Typography CSS copied to clipboard." : ""}
+                {copyMessage}
             </p>
         </section>
     );
